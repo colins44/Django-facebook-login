@@ -1,0 +1,10 @@
+'''this is the html code that you have to place within your webpage that will start the process of
+    calling the facebook API, the code interacts with the URL.py file and then onto the views.py file'''
+    
+'''change the client_id to equal the client id that facebook give you when you set up your app
+    this login asks for the extra scope from facebook that includes the users birthday and email
+    address
+    
+<a href="https://www.facebook.com/dialog/oauth?
+    client_id=ENTER_YOU_CLIENT_ID_HERE
+   &redirect_uri=http://localhost:8000/facebookreturn&scope=email,user_birthday">FACEBOOK LOGIN BUTTON </a>
