@@ -9,7 +9,7 @@ from django.contrib.auth import login as auth_login
 '''this is the function that is called when the facebook login button is clicked in your html page
   to get this view to work change the following settings in the function
   client_id= set this to the client id that facebook give you when you set up your app
-  client_secret= set this to the client secret that facebook give you when you set up your app
+  client_secret= set this to the client secret that facebook give you when you set up your app'''
 
 def facebookreturn(request):
     ##this opens the url to receive the access token from facebook that allows you to peform the API call to get user information
