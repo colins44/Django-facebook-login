@@ -15,4 +15,4 @@ and then using the information return by the facebook login flow to fill in the 
 
 Within this custom user model the email address returned by the facebook api call is the username of the user and the facebook id returned is the password of the user.
 
-To follow through this guide i have attached all the files needed with the code within them in orded to get the system running, you will need to edit your setting.py, urls.py, models.py and views.py files to match what I have within mine
+To follow through this guide i have attached all the files needed with the code within them in orded to get the system running, you will need to edit your setting.py, urls.py, models.py, views.py and your .html file where your login button is found to match what I have within mine
