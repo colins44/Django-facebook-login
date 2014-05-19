@@ -5,6 +5,7 @@ from facebook import *
 from django.contrib.auth import get_user_model
 from django.contrib.auth import authenticate
 from django.contrib.auth import login as auth_login
+import datetime
 
 '''this is the function that is called when the facebook login button is clicked in your html page
   to get this view to work change the following settings in the function
@@ -31,6 +32,7 @@ def facebookreturn(request):
     email= profile.get('email')
     name= profile.get('name')
     birthday= profile.get('birthday')
+    birthday=datetime.datetime.strptime(birthday, '%m/%d/%Y').strftime('%Y-%m-%d')
     gender= profile.get('gender')
     link= profile.get('link')
     try:
@@ -39,6 +41,6 @@ def facebookreturn(request):
         user = authenticate(username=email, password=facebook_id)
         return HttpResponse('this users email address is %s' % user)
     except ObjectDoesNotExist:
-        New_user=MyUser.objects.create_user(email=email, date_of_birth='1984-07-09', password=facebook_id, facebook_id=facebook_id, link=link, name=name, gender=gender, username=username)
+        New_user=MyUser.objects.create_user(email=email, date_of_birth=birthday, password=facebook_id, facebook_id=facebook_id, link=link, name=name, gender=gender, username=username)
         return HttpResponse("facebook id %s\n, username %s\n, email %s\n, name %s\n, birthday %s\n, gender %s\n, link %s" % (facebook_id, username, email, name, birthday, gender, link))
     
